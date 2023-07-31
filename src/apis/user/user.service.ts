@@ -1,6 +1,6 @@
 import { Injectable,NotFoundException,UnauthorizedException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { User } from 'src/entities/user.entity';
+import { User } from 'src/apis/user/user.entity';
 import { Repository } from 'typeorm';
 
 @Injectable()
@@ -19,7 +19,6 @@ export class UserService {
     return findUser
 
   }
-
   async signup(
     loginId: string,
     nickname: string,

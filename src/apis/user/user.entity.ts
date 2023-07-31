@@ -3,9 +3,13 @@ import {
   CreateDateColumn,
   DeleteDateColumn,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+  import { PointHistory } from '../point-history/pointHistory.entity';
+  import { Concert } from '../concert/concert.entity';
+  import { Reservation } from '../reservation/reservation.entity';
 
 @Entity({ schema: 'nest_prac', name: 'user' })
 export class User {
@@ -32,4 +36,19 @@ export class User {
 
   @DeleteDateColumn()
   deleteAt: Date | null;
+
+  @OneToMany(() => PointHistory, (pointHistories) => pointHistories.user, {
+      cascade: true,
+    })
+    points: PointHistory[];
+  
+    @OneToMany(() => Concert, (concerts) => concerts.user, {
+      cascade: true,
+    })
+    concerts: Concert[];
+  
+    @OneToMany(() => Reservation, (reservation) => reservation.user, {
+      cascade: true,
+    })
+    reservations: Reservation[];
 }
