@@ -5,7 +5,6 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './apis/user/user.module';
 import { TypeOrmConfigService } from './config/typeorm.config.service';
-import { PointHistoryModule } from './apis/point-history/point-history.module';
 import { ConcertModule } from './apis/concert/concert.module';
 import { ReservationModule } from './apis/reservation/reservation.module';
 import { AuthModule } from './apis/auth/auth.module';
@@ -17,10 +16,9 @@ import { AuthModule } from './apis/auth/auth.module';
       useClass: TypeOrmConfigService,  
     }),
     UserModule,
-    PointHistoryModule,
-    ConcertModule,
-    ReservationModule,
-    AuthModule
+    // ConcertModule,
+    // ReservationModule,
+    // AuthModule
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -15,13 +15,13 @@ import {
     @PrimaryGeneratedColumn({ type: 'int' })
     id: number;
   
-    @Column({ nullable: false, length: 50 })
+    @Column({ name:'title', nullable: false, length: 50 })
     title: string;
   
-    @Column({ nullable: false, length: 200 })
+    @Column({ name:'desc', nullable: false, length: 200 })
     desc: string;
   
-    @Column({ nullable: false })
+    @Column({ name:'price', nullable: false })
     price: number;
   
     @CreateDateColumn()

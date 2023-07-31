@@ -7,7 +7,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-  import { PointHistory } from '../point-history/pointHistory.entity';
+  // import { PointHistory } from '../point-history/pointHistory.entity';
   import { Concert } from '../concert/concert.entity';
   import { Reservation } from '../reservation/reservation.entity';
 
@@ -25,6 +25,9 @@ export class User {
   @Column('varchar', { name: 'nickname', unique: true, length: 20 })
   nickname: string;
 
+  @Column({ type: 'int', name:'point', default:1000000 })
+  point?: boolean
+
   @Column({ nullable: false, default: false })
   isAdmin: boolean;
 
@@ -37,10 +40,10 @@ export class User {
   @DeleteDateColumn()
   deleteAt: Date | null;
 
-  @OneToMany(() => PointHistory, (pointHistories) => pointHistories.user, {
-      cascade: true,
-    })
-    points: PointHistory[];
+  // @OneToMany(() => PointHistory, (pointHistories) => pointHistories.user, {
+  //     cascade: true,
+  //   })
+  //   points: PointHistory[];
   
     @OneToMany(() => Concert, (concerts) => concerts.user, {
       cascade: true,
