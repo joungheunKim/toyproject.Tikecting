@@ -19,6 +19,16 @@ export class UserController {
             data.loginId,
             data.nickname,
             data.password,
+            data.confirmPassword,
+            );
+    }
+
+    @Post('/signup/admin')
+    async admin(@Body() data: UserDto) {
+        return this.userService.admin(
+            data.loginId,
+            data.nickname,
+            data.password,
             data.confirmPassword
             );
     }
