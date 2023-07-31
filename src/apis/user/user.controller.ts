@@ -1,6 +1,6 @@
 import { Controller, Delete, Get, Post, Put, Body, Param } from '@nestjs/common';
 import { UserService } from './user.service';
-import { CreateUserDto } from './createUser.dto';
+import { UserDto } from './user.dto';
 import { async } from 'rxjs';
 
 @Controller('user')
@@ -14,7 +14,7 @@ export class UserController {
     }
 
     @Post('/signup')
-    async signup(@Body() data: CreateUserDto) {
+    async signup(@Body() data: UserDto) {
         return this.userService.signup(
             data.loginId,
             data.nickname,
@@ -22,10 +22,5 @@ export class UserController {
             data.confirmPassword
             );
     }
-
-    // @Post('/login')
-    // login() {
-    //     return this.userService.login();
-    // }
 
 }
