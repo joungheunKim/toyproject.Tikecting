@@ -18,7 +18,7 @@ import { AuthModule } from './apis/auth/auth.module';
     UserModule,
     // ConcertModule,
     // ReservationModule,
-    // AuthModule
+    AuthModule
   ],
   controllers: [AppController],
   providers: [AppService],
