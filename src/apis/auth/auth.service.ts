@@ -25,4 +25,10 @@ export class AuthService {
         accessToken: this.jwtService.sign(payload)
     }
   }
+
+  async tokenValidateUser(payload:Payload): Promise<AuthDto | undefined>{
+    return await this.userService.findByFields({
+      where: { loginId: payload.loginId }
+    })
+  }
 }
